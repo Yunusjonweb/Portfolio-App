@@ -6,8 +6,8 @@ export const theme = extendTheme({
   components: {
     Button: {
       baseStyle: {
-        bg: 'main.100',
-        backgroundColor: 'main.100',
+        bg: 'main.200',
+        backgroundColor: 'main.200',
         size: 'md',
         colorScheme: 'primary',
         rounded: '2xl',
@@ -18,6 +18,7 @@ export const theme = extendTheme({
       defaultProps: {
         _text: {
           fontSize: '2xl',
+          color: 'white.100',
         },
       },
       variants: {
@@ -78,11 +79,11 @@ export const theme = extendTheme({
           textTransform: 'lowercase',
         },
         _focus: {
-          borderColor: 'main.100',
+          borderColor: '#0f2a47',
           backgroundColor: 'transparent',
-          _icon: {color: 'main.100'},
+          _icon: {color: 'black.100'},
           _input: {
-            color: 'main.100',
+            color: 'dark.100',
           },
         },
       },
