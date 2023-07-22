@@ -51,11 +51,19 @@ export default function HomeScreen() {
             <Text fontSize="md" color="gray.100">
               Deily Goal
             </Text>
-            <View style={styles.taskCard}>
+            <HStack space="10px" alignItems="center">
+              <View style={styles.taskCard}>
+                <Text color="white.100" textAlign="center" fontWeight="600">
+                  3/5
+                </Text>
+              </View>
               <Text color="white.100" textAlign="center" fontWeight="900">
-                3/5
+                tasks
               </Text>
-            </View>
+            </HStack>
+            <Text color="gray.100" fontWeight="900">
+              You marked 3/5 tasks{'\n'}are done 🎉
+            </Text>
           </VStack>
         </View>
         {selectedTab === 'overview' ? <DashboardScreen /> : <SignIn />}
@@ -89,8 +97,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 30,
     borderRadius: 5,
-    alignItems:'center',
-    justifyContent:'center',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#99cb86',
   },
 });

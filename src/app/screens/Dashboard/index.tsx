@@ -1,13 +1,15 @@
 import {Text, View} from 'native-base';
 import React from 'react';
 import {StyleSheet} from 'react-native';
+import Charts from '../../components/Charts';
 
 export default function DashboardScreen() {
   return (
     <View style={styles.container}>
-      <Text color="white.100" fontSize="lg" mt="40">
+      <Text color="white.100" fontSize="lg" mt="10">
         Dashboard Page
       </Text>
+      <Charts />
     </View>
   );
 }
