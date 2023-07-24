@@ -4,21 +4,40 @@ import {Text, VStack, Input, Button, FormControl} from 'native-base';
 import PageWrapper from '../../../components/PageWrapper';
 import PasswordInput from '../../../components/Inputs';
 import {useForm, Controller} from 'react-hook-form';
+import {useDispatch} from 'react-redux';
+import {handleAuth} from '../../../store/auth';
+import {useNavigation} from '@react-navigation/native';
+import paths from '../../../constants/routePaths';
+import axios from 'axios';
 
-interface FormData {
+interface IFormData {
   email: string;
   password: string;
 }
 
 export default function SignIn() {
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
   const {
     control,
     handleSubmit,
     formState: {errors},
-  } = useForm<FormData>();
+  } = useForm<IFormData>();
+
+  // https://yulbasali.urinboydev.uz/api/login
 
   const onSubmit = async (values: IFormvalues) => {
     console.log(values);
+    const {data} = await axios.post(
+      'https://yulbasali.urinboydev.uz/api/login',
+      values,
+    );
+    if (data) {
+      const {token} = data;
+      console.log(token, 55555);
+      dispatch(handleAuth({token}));
+      navigation.navigate(paths.HOME);
+    }
   };
 
   return (

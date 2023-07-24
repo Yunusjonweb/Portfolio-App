@@ -28,6 +28,7 @@ const PasswordInput = ({
 
   return (
     <Input
+      autoCapitalize="none"
       isInvalid={isInvalid || false}
       placeholder={placeholder || 'Password'}
       type={show ? 'password' : 'text'}
