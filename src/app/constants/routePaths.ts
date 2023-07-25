@@ -6,6 +6,7 @@ const paths = {
   HOME: 'HomeScreen',
   DASHBOARD: 'DashboardScreen',
   PROJECTS:'ProjectScreen',
+  CRUD:'CrudScreen',
   // AUTH PATHS
   SIGNIN: 'SignIn',
 };

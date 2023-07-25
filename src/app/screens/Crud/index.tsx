@@ -1,17 +1,11 @@
 import {Text, View} from 'native-base';
 import React, { useState } from 'react';
 import {StyleSheet} from 'react-native';
-import Loading from '../../components/Loading';
 
-export default function DashboardScreen() {
-  const [loader,setLoader]=useState(false);
+export default function CrudScreen() {
   return (
     <View style={styles.container}>
-      {loader?(
-        <Text color="white.100" fontSize="lg" mt="10">
-        Dashboard Page
-      </Text>
-      ):<Loading/>}
+        <Text>Crud</Text>
     </View>
   );
 }

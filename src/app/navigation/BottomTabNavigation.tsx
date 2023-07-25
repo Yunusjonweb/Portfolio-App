@@ -5,9 +5,11 @@ import {colors} from '../theme/variables';
 import paths from '../constants/routePaths';
 import HomeIcon from '../../assets/icons/home.svg';
 import DocumentIcon from '../../assets/icons/document.svg';
+import FormIcon from '../../assets/icons/form.svg';
 import {Icon} from 'native-base';
 import HomeScreen from '../screens/Home/index';
 import DashboardScreen from '../screens/Dashboard';
+import CrudScreen from '../screens/Crud';
 
 const Tab = createBottomTabNavigator();
 
@@ -60,6 +62,15 @@ const BottomTabNavigation = () => {
       options: {
         tabBarIcon: ({color}: any) => (
           <Icon as={<DocumentIcon style={{color}} />} size={24} />
+        ),
+      },
+    },
+    {
+      name: paths.CRUD,
+      component: CrudScreen,
+      options: {
+        tabBarIcon: ({color}: any) => (
+          <Icon as={<FormIcon style={{color}} />} size={24} />
         ),
       },
     },

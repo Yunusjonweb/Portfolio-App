@@ -1,5 +1,6 @@
 import paths from '../constants/routePaths';
 import SignIn from '../screens/Auth/SignIn';
+import CrudScreen from '../screens/Crud';
 import DashboardScreen from '../screens/Dashboard';
 import HomeScreen from '../screens/Home/index';
 import ProjectScreen from '../screens/Home/pages/Projects';
@@ -36,5 +37,9 @@ export const MAIN_ROUTES = [
   {
     path:paths.PROJECTS,
     element:ProjectScreen,
+  },
+  {
+    path:paths.CRUD,
+    element:CrudScreen,
   }
 ];

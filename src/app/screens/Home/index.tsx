@@ -7,6 +7,7 @@ import SignIn from '../Auth/SignIn';
 import DashboardScreen from '../Dashboard';
 import Charts from '../../components/Charts';
 import {useNavigation} from '@react-navigation/native';
+import paths from '../../constants/routePaths';
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -63,12 +64,12 @@ export default function HomeScreen() {
                 </Text>
               </HStack>
               <Text color="gray.100">You marked 3/5 task{'\n'}are done 🎉</Text>
-              {/* <Button
+              <Button
                 style={styles.btn}
                 _text={{fontSize: 'md', fontWeight: '600'}}
                 onPress={()=>navigation.navigate(paths.PROJECTS)}>
                 All Tasks
-              </Button> */}
+              </Button>
             </VStack>
             <Charts />
           </HStack>

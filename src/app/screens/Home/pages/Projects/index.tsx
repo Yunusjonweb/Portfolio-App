@@ -1,10 +1,67 @@
-import {View, Text, SafeAreaView} from 'react-native';
-import React from 'react';
+import { View, StyleSheet } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import { Text, HStack, VStack } from 'native-base';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
+import Carousel from 'react-native-snap-carousel';
+import CarouselCardItem, { ITEM_WIDTH, SLIDER_WIDTH } from '../../../../components/Carousel';
+import Loading from '../../../../components/Loading';
 
 export default function ProjectScreen() {
+  const { token } = useSelector(state => state.auth);
+  const isCarousel = useRef(null);
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    const {data: {data}} = await axios.get("https://yulbasali.urinboydev.uz/api/v1/users",{headers: { "Authorization": `Bearer ${token}` }})
+    setData(data);
+  }
+  
+  useEffect(() => {
+    fetchData();
+  }, [])
+
   return (
-    <SafeAreaView>
-        <Text>Projects</Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <VStack space="25px">
+        <Text color="white.100" fontSize="4xl" mt="10">
+          Classes
+        </Text>
+        <HStack justifyContent="space-between" alignItems="center">
+          <Text color="white.100" fontSize='lg'>Developers</Text>
+          <Text color="white.100" fontSize='md'>View All</Text>
+        </HStack>
+        {data.length?(
+          <Carousel
+          layout="default"
+          layoutCardOffset={3}
+          ref={isCarousel}
+          data={data}
+          renderItem={CarouselCardItem}
+          sliderWidth={SLIDER_WIDTH}
+          itemWidth={ITEM_WIDTH}
+          inactiveSlideShift={0}
+          useScrollView={true}
+          autoplay={true}
+          autoplayDelay={2000}
+          loop={true}
+        />
+        ):<Loading/>}
+      </VStack>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: '#1a182d',
+  },
+  developerCard: {
+    width: 220,
+    height: 250,
+    borderRadius: 8,
+    backgroundColor: "#fff"
+  },
+});
