@@ -18,14 +18,14 @@ export default function Charts() {
   };
 
   return (
-      <ProgressChart
-        data={data}
-        width={120}
-        height={120}
-        strokeWidth={4}
-        radius={12}
-        chartConfig={chartConfig}
-        hideLegend={true}
-      />
+    <ProgressChart
+      data={data}
+      width={140}
+      height={140}
+      strokeWidth={4}
+      radius={12}
+      chartConfig={chartConfig}
+      hideLegend={true}
+    />
   );
 }

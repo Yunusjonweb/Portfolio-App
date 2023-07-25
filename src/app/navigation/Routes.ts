@@ -2,6 +2,7 @@ import paths from '../constants/routePaths';
 import SignIn from '../screens/Auth/SignIn';
 import DashboardScreen from '../screens/Dashboard';
 import HomeScreen from '../screens/Home/index';
+import ProjectScreen from '../screens/Home/pages/Projects';
 import AboutOnBoarding from '../screens/Onboarding/pages/About';
 import PurposeOnBoarding from '../screens/Onboarding/pages/Purpose';
 
@@ -31,5 +32,9 @@ export const MAIN_ROUTES = [
   {
     path:paths.DASHBOARD,
     element: DashboardScreen,
+  },
+  {
+    path:paths.PROJECTS,
+    element:ProjectScreen,
   }
 ];

@@ -9,7 +9,6 @@ import {handleAuth} from '../../../store/auth';
 import {useNavigation} from '@react-navigation/native';
 import paths from '../../../constants/routePaths';
 import axios from 'axios';
-
 interface IFormData {
   email: string;
   password: string;
@@ -34,7 +33,6 @@ export default function SignIn() {
     );
     if (data) {
       const {token} = data;
-      console.log(token, 55555);
       dispatch(handleAuth({token}));
       navigation.navigate(paths.HOME);
     }

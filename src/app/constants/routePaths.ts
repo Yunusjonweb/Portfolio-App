@@ -5,6 +5,7 @@ const paths = {
   //  ROUTES
   HOME: 'HomeScreen',
   DASHBOARD: 'DashboardScreen',
+  PROJECTS:'ProjectScreen',
   // AUTH PATHS
   SIGNIN: 'SignIn',
 };
