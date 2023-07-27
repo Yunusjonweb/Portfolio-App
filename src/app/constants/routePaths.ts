@@ -5,8 +5,11 @@ const paths = {
   //  ROUTES
   HOME: 'HomeScreen',
   DASHBOARD: 'DashboardScreen',
-  PROJECTS:'ProjectScreen',
-  CRUD:'CrudScreen',
+  DEVELOPER: 'DeveloperScreen',
+  CRUD: 'CrudScreen',
+  PRODUCTIVITY: 'ProductivityScreen',
+  PROJECTS: 'ProjectsScreen',
+  PRODUCTSITEM: 'ProductsItem',
   // AUTH PATHS
   SIGNIN: 'SignIn',
 };

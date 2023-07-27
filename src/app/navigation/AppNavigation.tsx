@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {useColorScheme} from 'react-native';
 import {
   NavigationContainer,
@@ -34,7 +34,6 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const ApplicationNavigator = () => {
   const colorScheme = useColorScheme();
   const {token, isRegistered} = useAppSelector((state: any) => state.auth);
-  console.log(token, 8555);
 
   return (
     <NavigationContainer

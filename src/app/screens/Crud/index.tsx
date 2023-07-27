@@ -1,12 +1,14 @@
-import {Text, View} from 'native-base';
+import { Button, Input, Text, VStack, View } from 'native-base';
 import React, { useState } from 'react';
-import {StyleSheet} from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 
 export default function CrudScreen() {
   return (
-    <View style={styles.container}>
-        <Text>Crud</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Text color="white.100" fontSize="2xl" fontWeight="600" textAlign="center">Add Portfolio</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 

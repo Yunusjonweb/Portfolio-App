@@ -1,14 +1,15 @@
-import {ImageBackground, SafeAreaView, StyleSheet} from 'react-native';
 import React from 'react';
-import {Text, VStack, Input, Button, FormControl} from 'native-base';
-import PageWrapper from '../../../components/PageWrapper';
-import PasswordInput from '../../../components/Inputs';
-import {useForm, Controller} from 'react-hook-form';
+import axios from 'axios';
 import {useDispatch} from 'react-redux';
 import {handleAuth} from '../../../store/auth';
-import {useNavigation} from '@react-navigation/native';
 import paths from '../../../constants/routePaths';
-import axios from 'axios';
+import {useForm, Controller} from 'react-hook-form';
+import {useNavigation} from '@react-navigation/native';
+import PasswordInput from '../../../components/Inputs';
+import PageWrapper from '../../../components/PageWrapper';
+import {Text, VStack, Input, Button, FormControl} from 'native-base';
+import {ImageBackground, SafeAreaView, StyleSheet} from 'react-native';
+
 interface IFormData {
   email: string;
   password: string;
@@ -23,10 +24,7 @@ export default function SignIn() {
     formState: {errors},
   } = useForm<IFormData>();
 
-  // https://yulbasali.urinboydev.uz/api/login
-
   const onSubmit = async (values: IFormvalues) => {
-    console.log(values);
     const {data} = await axios.post(
       'https://yulbasali.urinboydev.uz/api/login',
       values,
@@ -66,7 +64,6 @@ export default function SignIn() {
                   <Input
                     mt="20"
                     autoCapitalize="none"
-                    isInvalid={Boolean(errors?.email)}
                     value={value}
                     onChangeText={onChange}
                     onBlur={onBlur}
@@ -79,7 +76,7 @@ export default function SignIn() {
                 {errors.email && 'Please input your email!'}
               </FormControl.ErrorMessage>
             </FormControl>
-            <FormControl isRequired isInvalid={Boolean(errors?.email)}>
+            <FormControl isRequired isInvalid={Boolean(errors?.password)}>
               <Controller
                 control={control}
                 rules={{
@@ -95,7 +92,7 @@ export default function SignIn() {
                 name="password"
               />
               <FormControl.ErrorMessage>
-                {errors.email && 'Please input your password!'}
+                {errors.password && 'Please input your password!'}
               </FormControl.ErrorMessage>
             </FormControl>
             <Text style={{textAlign: 'right'}} fontWeight="600">

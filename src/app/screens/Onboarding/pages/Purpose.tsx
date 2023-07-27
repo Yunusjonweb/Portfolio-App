@@ -1,7 +1,7 @@
 import React from 'react';
 import OnBoarding from '..';
 import {useDispatch} from 'react-redux';
-import { handleRegister } from '../../../store/auth';
+import {handleRegister} from '../../../store/auth';
 
 const PurposeOnBoarding = () => {
   const dispatch = useDispatch();

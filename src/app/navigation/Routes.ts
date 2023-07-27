@@ -1,11 +1,14 @@
+import CrudScreen from '../screens/Crud';
 import paths from '../constants/routePaths';
 import SignIn from '../screens/Auth/SignIn';
-import CrudScreen from '../screens/Crud';
-import DashboardScreen from '../screens/Dashboard';
 import HomeScreen from '../screens/Home/index';
-import ProjectScreen from '../screens/Home/pages/Projects';
+import ProjectsScreen from '../screens/Home/pages/Projects';
+import DashboardScreen from '../screens/Home/pages/Dashboard';
+import DeveloperScreen from '../screens/Home/pages/Developer';
 import AboutOnBoarding from '../screens/Onboarding/pages/About';
+import ProductivityScreen from '../screens/Home/pages/Productivity';
 import PurposeOnBoarding from '../screens/Onboarding/pages/Purpose';
+import ProductsItem from '../screens/Home/pages/Projects/ProductItem';
 
 export const ONBOARDING_ROUTES = [
   {
@@ -31,15 +34,27 @@ export const MAIN_ROUTES = [
     element: HomeScreen,
   },
   {
-    path:paths.DASHBOARD,
+    path: paths.DASHBOARD,
     element: DashboardScreen,
   },
   {
-    path:paths.PROJECTS,
-    element:ProjectScreen,
+    path: paths.DEVELOPER,
+    element: DeveloperScreen,
   },
   {
-    path:paths.CRUD,
-    element:CrudScreen,
-  }
+    path: paths.CRUD,
+    element: CrudScreen,
+  },
+  {
+    path: paths.PRODUCTIVITY,
+    element: ProductivityScreen,
+  },
+  {
+    path: paths.PROJECTS,
+    element: ProjectsScreen,
+  },
+  {
+    path: paths.PRODUCTSITEM,
+    element: ProductsItem,
+  },
 ];

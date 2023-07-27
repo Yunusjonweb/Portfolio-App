@@ -1,15 +1,15 @@
 import React from 'react';
+import {Icon} from 'native-base';
 import {Platform} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import CrudScreen from '../screens/Crud';
 import {colors} from '../theme/variables';
 import paths from '../constants/routePaths';
-import HomeIcon from '../../assets/icons/home.svg';
-import DocumentIcon from '../../assets/icons/document.svg';
-import FormIcon from '../../assets/icons/form.svg';
-import {Icon} from 'native-base';
 import HomeScreen from '../screens/Home/index';
-import DashboardScreen from '../screens/Dashboard';
-import CrudScreen from '../screens/Crud';
+import HomeIcon from '../../assets/icons/home.svg';
+import FormIcon from '../../assets/icons/form.svg';
+import DocumentIcon from '../../assets/icons/document.svg';
+import DashboardScreen from '../screens/Home/pages/Dashboard';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 

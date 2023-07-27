@@ -1,7 +1,7 @@
 import React from 'react';
 import {ProgressChart} from 'react-native-chart-kit';
 
-export default function Charts() {
+export default function ProgressCharts() {
   const chartConfig = {
     backgroundGradientFrom: '#272a34',
     backgroundGradientFromOpacity: 0,

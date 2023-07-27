@@ -1,7 +1,7 @@
 import React from 'react';
-import {View, Dimensions, StyleSheet, SafeAreaView} from 'react-native';
 import {ScrollView} from 'native-base';
 import {colors} from '../theme/variables';
+import {View, Dimensions, StyleSheet, SafeAreaView} from 'react-native';
 
 interface IPageWrapperProps {
   children: any;

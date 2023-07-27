@@ -1,54 +1,65 @@
-import { View, StyleSheet } from 'react-native';
-import React, { useEffect, useRef, useState } from 'react';
-import { Text, HStack, VStack } from 'native-base';
-import axios from 'axios';
-import { useSelector } from 'react-redux';
-import Carousel from 'react-native-snap-carousel';
-import CarouselCardItem, { ITEM_WIDTH, SLIDER_WIDTH } from '../../../../components/Carousel';
-import Loading from '../../../../components/Loading';
+import React, {useState} from 'react';
+import {StyleSheet} from 'react-native';
+import ProductsItem from './ProductItem';
+import {colors} from '../../../../theme/variables';
+import SwitchSelector from 'react-native-switch-selector';
+import {SafeAreaView} from 'react-native-safe-area-context';
+import {View, Text, VStack, FlatList, Button} from 'native-base';
 
-export default function ProjectScreen() {
-  const { token } = useSelector(state => state.auth);
-  const isCarousel = useRef(null);
-  const [data, setData] = useState([]);
+export default function ProjectsScreen() {
+  const [selectedTab, setSelectedTab] = useState('overview');
 
-  const fetchData = async () => {
-    const {data: {data}} = await axios.get("https://yulbasali.urinboydev.uz/api/v1/users",{headers: { "Authorization": `Bearer ${token}` }})
-    setData(data);
-  }
-  
-  useEffect(() => {
-    fetchData();
-  }, [])
+  const options = [
+    {label: 'Favorites', value: 'favorites'},
+    {label: 'Recents', value: 'recents'},
+    {label: 'All', value: 'all'},
+  ];
+
+  const data = [
+    {id: 1, projectTitle: 'Coca-Cola', projectName: 'Design'},
+    {id: 2, projectTitle: 'Coca-Cola', projectName: 'Design'},
+    {id: 3, projectTitle: 'Coca-Cola', projectName: 'Design'},
+    {id: 4, projectTitle: 'Coca-Cola', projectName: 'Design'},
+  ];
 
   return (
-    <View style={styles.container}>
-      <VStack space="25px">
-        <Text color="white.100" fontSize="4xl" mt="10">
-          Classes
-        </Text>
-        <HStack justifyContent="space-between" alignItems="center">
-          <Text color="white.100" fontSize='lg'>Developers</Text>
-          <Text color="white.100" fontSize='md'>View All</Text>
-        </HStack>
-        {data.length?(
-          <Carousel
-          layout="default"
-          layoutCardOffset={3}
-          ref={isCarousel}
-          data={data}
-          renderItem={CarouselCardItem}
-          sliderWidth={SLIDER_WIDTH}
-          itemWidth={ITEM_WIDTH}
-          inactiveSlideShift={0}
-          useScrollView={true}
-          autoplay={true}
-          autoplayDelay={2000}
-          loop={true}
-        />
-        ):<Loading/>}
-      </VStack>
-    </View>
+    <SafeAreaView style={{flex:1}}>
+      <View style={styles.container}>
+        <VStack space="25px">
+          <Text
+            color="white.100"
+            fontWeight="600"
+            fontSize="2xl"
+            textAlign="center">
+            Projects
+          </Text>
+          <SwitchSelector
+            height={40}
+            initial={0}
+            options={options}
+            textColor={colors.gray[100]}
+            selectedColor={colors.white[100]}
+            buttonColor={colors.blue[100]}
+            backgroundColor={'#1a182d'}
+            fontSize={16}
+            textStyle={{fontFamily: 'Poppins-Regular'}}
+            selectedTextStyle={{
+              fontSize: 18,
+              fontFamily: 'Poppins-Regular',
+            }}
+            onPress={(value: string) => setSelectedTab(value)}
+          />
+          {data && (
+            <FlatList
+            data={data}
+            renderItem={ProductsItem}
+            numColumns={2}
+            keyExtractor={item => item.id}
+            />
+            )}
+        </VStack>
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -57,11 +68,5 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 24,
     backgroundColor: '#1a182d',
-  },
-  developerCard: {
-    width: 220,
-    height: 250,
-    borderRadius: 8,
-    backgroundColor: "#fff"
   },
 });
